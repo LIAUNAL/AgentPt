@@ -1035,8 +1035,8 @@ cite {
 .doc-excerpt {
   background: var(--gray2);
   border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 16px 20px;
+  border-radius: 12px;
+  padding: clamp(16px, 1.6vw, 24px) clamp(18px, 1.8vw, 28px);
 }
 
 /* Varios .doc-excerpt apilados (p. ej. spec.md completo, un escenario por bloque) */
@@ -1050,8 +1050,8 @@ cite {
 }
 
 .doc-excerpt-heading {
-  margin: 0 0 10px;
-  font-size: 1.02rem;
+  margin: 0 0 14px;
+  font-size: clamp(1.22rem, 1.3vw, 1.45rem);
   font-weight: 700;
   color: var(--subtext1);
 }
@@ -1060,14 +1060,14 @@ cite {
 .gwt-list {
   margin: 0;
   display: grid;
-  grid-template-columns: minmax(72px, 96px) minmax(0, 1fr);
-  gap: 8px 14px;
+  grid-template-columns: minmax(88px, 110px) minmax(0, 1fr);
+  gap: 14px 18px;
 }
 
 .req-list dt {
   font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
-  font-weight: 700;
-  font-size: 0.92rem;
+  font-weight: 800;
+  font-size: clamp(1.1rem, 1.15vw, 1.25rem);
   color: var(--fg);
   align-self: start;
 }
@@ -1076,28 +1076,28 @@ cite {
 .gwt-list dd {
   margin: 0;
   color: var(--subtext1);
-  font-size: 0.98rem;
-  line-height: 1.55;
+  font-size: clamp(1.15rem, 1.2vw, 1.3rem);
+  line-height: 1.65;
 }
 
 .req-tag {
   display: inline-block;
-  font-size: 0.74rem;
+  font-size: clamp(0.85rem, 0.88vw, 0.95rem);
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--subtext);
   background: var(--gray0);
   border: 1px solid var(--line-strong);
   border-radius: 4px;
-  padding: 2px 6px;
+  padding: 3px 8px;
   margin-right: 2px;
   vertical-align: 1px;
 }
 
 .gwt-key {
   font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-weight: 800;
+  font-size: clamp(1rem, 1.08vw, 1.16rem);
   letter-spacing: 0.04em;
   color: var(--accent);
   align-self: start;
@@ -1105,14 +1105,14 @@ cite {
 
 .story-list {
   margin: 0;
-  padding-left: 1.2em;
+  padding-left: 1.3em;
   color: var(--subtext1);
-  font-size: 0.98rem;
-  line-height: 1.55;
+  font-size: clamp(1.15rem, 1.2vw, 1.3rem);
+  line-height: 1.65;
 }
 
 .story-list li {
-  margin-bottom: 0.45em;
+  margin-bottom: 0.65em;
 }
 
 .story-list li::marker {
@@ -1120,10 +1120,55 @@ cite {
   font-weight: 700;
 }
 
+.story-tag {
+  display: inline-block;
+  font-family: ui-monospace, monospace;
+  font-size: 0.85em;
+  font-weight: 700;
+  color: var(--accent-sub);
+  background: var(--accent-bg);
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
+.epics-summary {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.epics-summary-title {
+  margin: 0 0 10px;
+  font-size: clamp(1.05rem, 1.1vw, 1.18rem);
+  font-weight: 700;
+  color: var(--subtext);
+}
+
+.epics-pills {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.epics-pills li {
+  font-size: clamp(0.98rem, 1.05vw, 1.12rem);
+  font-weight: 500;
+  color: var(--subtext1);
+  background: var(--gray0);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
 .code-block {
   margin: 0;
   font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
-  font-size: 0.98rem;
+  font-size: clamp(0.98rem, 1.08vw, 1.14rem);
   line-height: 1.55;
   color: var(--fg);
   background: var(--gray2);
@@ -1134,20 +1179,62 @@ cite {
   overflow-x: auto;
 }
 
+.slide.is-wide .slide-content {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
 .excerpt-row {
-  margin-top: 14px;
+  margin-top: clamp(14px, 1.6vh, 22px);
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: clamp(18px, 1.8vw, 28px);
+  align-items: stretch;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.excerpt-row > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.excerpt-row .doc-excerpt {
+  flex: 1 1 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.excerpt-row .req-list {
+  flex: 1 1 0;
+  align-content: space-around;
+}
+
+.excerpt-row .story-list {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: clamp(10px, 1.5vh, 18px);
+}
+
+.excerpt-row .epics-summary {
+  margin-top: auto;
 }
 
 .excerpt-label {
-  margin: 0 0 4px;
+  margin: 0 0 8px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--subtext);
-  font-size: 0.78rem;
-  font-weight: 600;
+  color: var(--accent);
+  font-size: clamp(0.95rem, 1vw, 1.08rem);
+  font-weight: 700;
 }
 
 .video-embed {
@@ -1197,5 +1284,66 @@ cite {
   .cmd-flow,
   .doc-excerpt {
     font-size: 0.92rem;
+  }
+}
+
+/* ---------- Pantallas de presentación (>= 1200px) ---------- */
+@media (min-width: 1200px) {
+  .doc-excerpt-heading {
+    font-size: 1.35rem;
+  }
+
+  .req-list dt {
+    font-size: 1.18rem;
+  }
+
+  .req-list dd,
+  .gwt-list dd,
+  .story-list {
+    font-size: 1.24rem;
+    line-height: 1.65;
+  }
+
+  .epics-summary-title {
+    font-size: 1.1rem;
+  }
+
+  .epics-pills li {
+    font-size: 1.05rem;
+  }
+}
+
+/* ---------- Pantallas grandes / proyectores 1080p (>= 1600px) ---------- */
+@media (min-width: 1600px) {
+  .doc-excerpt {
+    padding: 26px 34px;
+  }
+
+  .doc-excerpt-heading {
+    font-size: 1.45rem;
+  }
+
+  .req-list dt {
+    font-size: 1.24rem;
+  }
+
+  .req-list dd,
+  .gwt-list dd,
+  .story-list {
+    font-size: 1.28rem;
+    line-height: 1.7;
+  }
+
+  .excerpt-label {
+    font-size: 1.08rem;
+  }
+
+  .epics-summary-title {
+    font-size: 1.15rem;
+  }
+
+  .epics-pills li {
+    font-size: 1.08rem;
+    padding: 7px 14px;
   }
 }

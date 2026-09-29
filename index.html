@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=2" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260929_1730" />
   </head>
   <body>
     <div class="ambient"></div>
@@ -2789,13 +2789,13 @@
 
           <article
             class="slide"
-            data-index="22"
+            data-index="26"
             data-module="5"
             data-tone="cyan"
           >
             <div class="slide-content">
-              <p class="slide-kicker">23 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
-              <h2>Tutorial: de la idea al código, con un caso real</h2>
+              <p class="slide-kicker">27 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>Tutorial: SpecWeaver, con un caso real</h2>
               <ul class="slide-list">
                 <li>
                   Vas a recorrer el mismo caso que ya se construyó para el video: el <strong>Sistema de Créditos y Becas</strong>
@@ -2808,7 +2808,7 @@
                 </li>
                 <li>
                   El recorrido: crear el proyecto, sus comandos de <abbr title="Command-Line Interface (interfaz de línea de comandos)">CLI</abbr> y los comandos &ldquo;/&rdquo;
-                  del harness, los artefactos reales que produce (<abbr title="Product Requirements Document (documento de requisitos de producto)">PRD</abbr>, épicas, SpecWeaver, código con pruebas)
+                  del harness, los artefactos reales que produce (<abbr title="Product Requirements Document (documento de requisitos de producto)">PRD</abbr>, épicas, definición de specs, código con pruebas)
                   y el dashboard web.
                 </li>
                 <li>
@@ -2818,56 +2818,97 @@
             </div>
             <figure class="slide-figure">
               <svg
-                viewBox="0 0 520 200"
+                viewBox="0 0 520 360"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 role="img"
-                aria-label="Diagrama de flujo horizontal con cinco cajas conectadas por flechas: Idea, PRD, Epicas y Historias, SpecWeaver y Codigo, resumiendo el recorrido del tutorial"
+                aria-label="Diagrama de flujo vertical de cinco etapas de la idea al código: 1. Idea y necesidad de negocio (Brief inicial), 2. Requisitos estructurados con BMAD (prd.md), 3. Épicas e Historias (11 historias con criterios GWT), 4. Definición de specs con OpenSpec (spec.md y tareas atómicas), y 5. Código y pruebas automatizadas (tests en verde con node --test)"
               >
                 <defs>
-                  <marker id="ah-tut1" markerWidth="8" markerHeight="8" refX="5" refY="2.6" orient="auto"><path d="M0 0 L5.5 2.6 L0 5.2 z" fill="#2F8F86" /></marker>
+                  <marker id="ah-tut-down" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                    <path d="M0 0 L4 2.5 L0 5 z" fill="#2F8F86" />
+                  </marker>
                 </defs>
 
-                <text x="260" y="24" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">DE LA IDEA AL CÓDIGO</text>
-                <text x="260" y="40" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9" font-style="italic">el mismo flujo, en un solo recorrido</text>
+                <!-- Header -->
+                <text x="260" y="22" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">SPECWEAVER: DE LA IDEA AL CÓDIGO</text>
+                <text x="260" y="37" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9.5" font-style="italic">el mismo flujo, en un solo recorrido sin saltos</text>
 
-                <rect x="10" y="80" width="60" height="60" rx="10" fill="#EAF6F4" stroke="#2F8F86" stroke-width="1.6" />
-                <text x="40" y="115" text-anchor="middle" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">Idea</text>
+                <!-- Etapa 1: Idea -->
+                <rect x="20" y="48" width="480" height="48" rx="10" fill="#EAF6F4" stroke="#2F8F86" stroke-width="1.5" />
+                <rect x="30" y="56" width="32" height="32" rx="8" fill="#2F8F86" />
+                <text x="46" y="77" text-anchor="middle" fill="#FFFFFF" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="800">01</text>
+                <text x="74" y="69" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700">Idea y necesidad de negocio</text>
+                <text x="74" y="84" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9.5">Sistema de Créditos y Becas · gestión manual fragmentada</text>
+                <rect x="376" y="58" width="112" height="26" rx="6" fill="#FFFFFF" stroke="#2F8F86" stroke-width="1" />
+                <text x="432" y="75" text-anchor="middle" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="9.5" font-weight="700">Brief inicial</text>
 
-                <path d="M70 110 H80" stroke="#2F8F86" stroke-width="1.6" marker-end="url(#ah-tut1)" />
+                <!-- Conector 1 -> 2 -->
+                <line x1="46" y1="96" x2="46" y2="105" stroke="#2F8F86" stroke-width="1.8" marker-end="url(#ah-tut-down)" />
+                <line x1="260" y1="96" x2="260" y2="105" stroke="#B8C2D0" stroke-width="1.2" stroke-dasharray="2 2" />
 
-                <rect x="82" y="80" width="60" height="60" rx="10" fill="#EAF6F4" stroke="#2F8F86" stroke-width="1.6" />
-                <text x="112" y="115" text-anchor="middle" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">PRD</text>
+                <!-- Etapa 2: PRD -->
+                <rect x="20" y="106" width="480" height="48" rx="10" fill="#F4F7FA" stroke="#4E93B0" stroke-width="1.5" />
+                <rect x="30" y="114" width="32" height="32" rx="8" fill="#4E93B0" />
+                <text x="46" y="135" text-anchor="middle" fill="#FFFFFF" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="800">02</text>
+                <text x="74" y="127" fill="#2C6B87" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700">Requisitos estructurados (PRD)</text>
+                <text x="74" y="142" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9.5">Actores, reglas financieras y alcance con BMAD</text>
+                <rect x="376" y="116" width="112" height="26" rx="6" fill="#FFFFFF" stroke="#4E93B0" stroke-width="1" />
+                <text x="432" y="133" text-anchor="middle" fill="#2C6B87" font-family="ui-monospace,monospace" font-size="9.5" font-weight="700">prd.md · BMAD</text>
 
-                <path d="M142 110 H152" stroke="#2F8F86" stroke-width="1.6" marker-end="url(#ah-tut1)" />
+                <!-- Conector 2 -> 3 -->
+                <line x1="46" y1="154" x2="46" y2="163" stroke="#2F8F86" stroke-width="1.8" marker-end="url(#ah-tut-down)" />
+                <line x1="260" y1="154" x2="260" y2="163" stroke="#B8C2D0" stroke-width="1.2" stroke-dasharray="2 2" />
 
-                <rect x="154" y="80" width="140" height="60" rx="10" fill="#EAF6F4" stroke="#2F8F86" stroke-width="1.6" />
-                <text x="224" y="110" text-anchor="middle" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="10.5" font-weight="700">Épicas /</text>
-                <text x="224" y="124" text-anchor="middle" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="10.5" font-weight="700">Historias</text>
+                <!-- Etapa 3: Épicas e Historias -->
+                <rect x="20" y="164" width="480" height="48" rx="10" fill="#F7F5FA" stroke="#7189B8" stroke-width="1.5" />
+                <rect x="30" y="172" width="32" height="32" rx="8" fill="#7189B8" />
+                <text x="46" y="193" text-anchor="middle" fill="#FFFFFF" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="800">03</text>
+                <text x="74" y="185" fill="#4A5F8C" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700">Épicas e Historias de Usuario</text>
+                <text x="74" y="200" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9.5">11 historias con criterios formales Given-When-Then</text>
+                <rect x="376" y="174" width="112" height="26" rx="6" fill="#FFFFFF" stroke="#7189B8" stroke-width="1" />
+                <text x="432" y="191" text-anchor="middle" fill="#4A5F8C" font-family="Space Grotesk,sans-serif" font-size="9.5" font-weight="700">11 Historias · GWT</text>
 
-                <path d="M294 110 H304" stroke="#2F8F86" stroke-width="1.6" marker-end="url(#ah-tut1)" />
+                <!-- Conector 3 -> 4 -->
+                <line x1="46" y1="212" x2="46" y2="221" stroke="#2F8F86" stroke-width="1.8" marker-end="url(#ah-tut-down)" />
+                <line x1="260" y1="212" x2="260" y2="221" stroke="#B8C2D0" stroke-width="1.2" stroke-dasharray="2 2" />
 
-                <rect x="306" y="80" width="100" height="60" rx="10" fill="#EAF6F4" stroke="#2F8F86" stroke-width="1.6" />
-                <text x="356" y="115" text-anchor="middle" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="10.5" font-weight="700">SpecWeaver</text>
+                <!-- Etapa 4: Definición de specs -->
+                <rect x="20" y="222" width="480" height="48" rx="10" fill="#FBF3F8" stroke="#A83D89" stroke-width="1.5" />
+                <rect x="30" y="230" width="32" height="32" rx="8" fill="#A83D89" />
+                <text x="46" y="251" text-anchor="middle" fill="#FFFFFF" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="800">04</text>
+                <text x="74" y="243" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700">Definición de specs</text>
+                <text x="74" y="258" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9.5">Especificaciones ejecutables y tareas atómicas con OpenSpec</text>
+                <rect x="376" y="232" width="112" height="26" rx="6" fill="#FFFFFF" stroke="#A83D89" stroke-width="1" />
+                <text x="432" y="249" text-anchor="middle" fill="#A83D89" font-family="ui-monospace,monospace" font-size="9.5" font-weight="700">spec.md · tasks</text>
 
-                <path d="M406 110 H416" stroke="#2F8F86" stroke-width="1.6" marker-end="url(#ah-tut1)" />
+                <!-- Conector 4 -> 5 -->
+                <line x1="46" y1="270" x2="46" y2="279" stroke="#2F8F86" stroke-width="1.8" marker-end="url(#ah-tut-down)" />
+                <line x1="260" y1="270" x2="260" y2="279" stroke="#2F8F86" stroke-width="1.2" stroke-dasharray="2 2" />
 
-                <rect x="418" y="80" width="92" height="60" rx="10" fill="#1B2029" stroke="#2F8F86" stroke-width="2" />
-                <text x="464" y="115" text-anchor="middle" fill="#FFFFFF" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="800">Código</text>
+                <!-- Etapa 5: Código y Pruebas (Hero) -->
+                <rect x="20" y="280" width="480" height="54" rx="12" fill="#1B2029" stroke="#2F8F86" stroke-width="2" />
+                <rect x="30" y="291" width="32" height="32" rx="8" fill="#2F8F86" />
+                <text x="46" y="312" text-anchor="middle" fill="#FFFFFF" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="800">05</text>
+                <text x="74" y="303" fill="#FFFFFF" font-family="Space Grotesk,sans-serif" font-size="13.5" font-weight="800">Código y Pruebas Reales</text>
+                <text x="74" y="320" fill="#9ECFC9" font-family="Space Grotesk,sans-serif" font-size="9.5">Implementación con agentes · suite de tests pasando</text>
+                <rect x="368" y="293" width="120" height="28" rx="6" fill="#2F8F86" />
+                <text x="428" y="311" text-anchor="middle" fill="#FFFFFF" font-family="ui-monospace,monospace" font-size="9.5" font-weight="800">node --test ✓</text>
 
-                <text x="260" y="178" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9.5" font-style="italic">caso real: Sistema de Créditos y Becas</text>
+                <!-- Footer label -->
+                <text x="260" y="351" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9" font-style="italic">caso real: Sistema de Créditos y Becas · trazabilidad de punta a punta</text>
               </svg>
             </figure>
           </article>
 
           <article
             class="slide"
-            data-index="23"
+            data-index="27"
             data-module="5"
             data-tone="blue"
           >
             <div class="slide-content">
-              <p class="slide-kicker">24 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">28 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>Paso 1 — Crear el proyecto desde cero</h2>
               <ul class="slide-list">
                 <li>
@@ -2934,12 +2975,12 @@
 
           <article
             class="slide"
-            data-index="26"
+            data-index="28"
             data-module="5"
             data-tone="orange"
           >
             <div class="slide-content">
-              <p class="slide-kicker">27 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">29 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>D&oacute;nde corre el agente: el entorno deja de ser problema de cada quien</h2>
               <ul class="slide-list">
                 <li>
@@ -3028,12 +3069,12 @@
 
           <article
             class="slide"
-            data-index="27"
+            data-index="29"
             data-module="5"
             data-tone="purple"
           >
             <div class="slide-content">
-              <p class="slide-kicker">28 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">30 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>Qu&eacute; es un Sprite: una computadora Linux, no un contenedor</h2>
               <ul class="slide-list">
                 <li>
@@ -3128,12 +3169,12 @@
 
           <article
             class="slide"
-            data-index="28"
+            data-index="30"
             data-module="5"
             data-tone="red"
           >
             <div class="slide-content">
-              <p class="slide-kicker">29 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">31 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>Seguridad: el agente corre con las manos atadas, a prop&oacute;sito</h2>
               <ul class="slide-list">
                 <li>
@@ -3225,12 +3266,12 @@
 
           <article
             class="slide"
-            data-index="29"
+            data-index="31"
             data-module="5"
             data-tone="green"
           >
             <div class="slide-content">
-              <p class="slide-kicker">30 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">32 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>Cu&aacute;nto cuesta y d&oacute;nde encaja con <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">SPEC-WEAVER</abbr></h2>
               <ul class="slide-list">
                 <li>
@@ -3313,12 +3354,12 @@
 
           <article
             class="slide is-wide"
-            data-index="24"
+            data-index="32"
             data-module="5"
             data-tone="yellow"
           >
             <div class="slide-content">
-              <p class="slide-kicker">25 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">33 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>Los comandos del CLI</h2>
               <p>
                 Un comando arranca el proyecto una sola vez; el resto se repite mientras avanza:
@@ -3394,12 +3435,12 @@
 
           <article
             class="slide is-wide"
-            data-index="25"
+            data-index="33"
             data-module="5"
             data-tone="purple"
           >
             <div class="slide-content">
-              <p class="slide-kicker">26 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">34 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>Los comandos &ldquo;/&rdquo; dentro del harness</h2>
               <p>
                 Cinco puertas de entrada, una sola tubería: todo converge en planificar, construir,
@@ -3517,12 +3558,12 @@
 
           <article
             class="slide is-wide"
-            data-index="26"
+            data-index="34"
             data-module="5"
             data-tone="green"
           >
             <div class="slide-content">
-              <p class="slide-kicker">27 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">35 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>De la idea a las historias: el caso real</h2>
               <ul class="slide-list">
                 <li>
@@ -3560,10 +3601,27 @@
                   <div class="doc-excerpt">
                     <p class="doc-excerpt-heading">Epic 1: Solicitud de crédito</p>
                     <ol class="story-list">
-                      <li>Registro de solicitud de crédito con datos socioeconómicos</li>
-                      <li>Validación de documentos requeridos antes de enviar a revisión</li>
-                      <li>Revisión y decisión del asesor financiero</li>
+                      <li>
+                        <strong>Story 1.1:</strong> Registro de solicitud con datos socioeconómicos
+                        <span class="story-tag">&rarr; FR-001</span>
+                      </li>
+                      <li>
+                        <strong>Story 1.2:</strong> Validación de documentos requeridos antes de enviar a revisión
+                        <span class="story-tag">&rarr; FR-002</span>
+                      </li>
+                      <li>
+                        <strong>Story 1.3:</strong> Revisión y decisión del asesor financiero
+                        <span class="story-tag">&rarr; FR-003, FR-004</span>
+                      </li>
                     </ol>
+                    <div class="epics-summary">
+                      <p class="epics-summary-title">Otras épicas del backlog (8 historias adicionales):</p>
+                      <ul class="epics-pills">
+                        <li><strong>Epic 2:</strong> Evaluación de elegibilidad para becas (3 historias)</li>
+                        <li><strong>Epic 3:</strong> Desembolso y seguimiento (3 historias)</li>
+                        <li><strong>Epic 4:</strong> Reportes para dirección académica (2 historias)</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3572,12 +3630,12 @@
 
           <article
             class="slide is-wide"
-            data-index="27"
+            data-index="35"
             data-module="5"
             data-tone="magenta"
           >
             <div class="slide-content">
-              <p class="slide-kicker">28 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">36 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>El contrato completo: spec.md</h2>
               <ul class="slide-list">
                 <li>
@@ -3634,12 +3692,12 @@
 
           <article
             class="slide is-wide"
-            data-index="28"
+            data-index="36"
             data-module="5"
             data-tone="orange"
           >
             <div class="slide-content">
-              <p class="slide-kicker">29 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">37 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>De SpecWeaver al código, sin saltos</h2>
               <ul class="slide-list">
                 <li>
@@ -3732,12 +3790,12 @@
 
           <article
             class="slide is-figure-wide"
-            data-index="29"
+            data-index="37"
             data-module="5"
             data-tone="red"
           >
             <div class="slide-content">
-              <p class="slide-kicker">30 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">38 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>Levantar la interfaz web</h2>
               <ul class="slide-list">
                 <li>
@@ -3759,12 +3817,12 @@
 
           <article
             class="slide is-figure-wide"
-            data-index="30"
+            data-index="38"
             data-module="5"
             data-tone="cyan"
           >
             <div class="slide-content">
-              <p class="slide-kicker">31 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">39 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>El dashboard: pestaña Dependencias</h2>
               <ul class="slide-list">
                 <li>
@@ -3784,112 +3842,13 @@
           </article>
 
           <article
-            class="slide"
-            data-index="31"
-            data-module="5"
-            data-tone="magenta"
-          >
-            <div class="slide-content">
-              <p class="slide-kicker">32 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
-              <h2>El dashboard: pestaña Progreso — inteligencia de negocio</h2>
-              <ul class="slide-list">
-                <li>
-                  Tiles de métricas en vivo, un stepper de fases y el bloque de sprint, todo calculado del
-                  estado real del proyecto —no una maqueta.
-                </li>
-                <li>
-                  La lista &ldquo;Decisiones clave&rdquo; hace trazable cada avance: qué se decidió y por qué.
-                </li>
-                <li>
-                  Esta es la vista de <abbr title="Business Intelligence (inteligencia de negocio)">BI</abbr> que convierte el avance de ingeniería en información legible
-                  para dirección académica.
-                </li>
-              </ul>
-            </div>
-            <figure class="slide-figure">
-              <svg
-                viewBox="0 0 480 400"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Mini dashboard con datos reales del comando status --json: cuatro tiles de metricas (4 epicas, 11 historias con 1 cerrada 9 por ciento, 6 de 52 tareas 12 por ciento, 11 changes con 1 archivado), un stepper de seis fases del proyecto -entender y decidir pendientes, descomponer y traducir a specs completas, construir pendiente, cerrar parcial-, un bloque de sprint con 3 olas y ola actual 1 con 4 changes listas, y un bloque de decisiones clave que hoy muestra 0 registradas"
-              >
-                <text x="240" y="16" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">PESTAÑA PROGRESO — ESTADO REAL</text>
-                <text x="240" y="29" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8.5" font-style="italic">un-specweaver status --json</text>
-
-                <!-- tiles de metricas -->
-                <rect x="8" y="40" width="110" height="82" rx="10" stroke="#A83D89" stroke-width="1.5" fill="#FBF3F8" />
-                <text x="63" y="76" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="22" font-weight="800">4</text>
-                <text x="63" y="110" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">Épicas</text>
-
-                <rect x="128" y="40" width="110" height="82" rx="10" stroke="#A83D89" stroke-width="1.5" fill="#FBF3F8" />
-                <text x="183" y="76" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="22" font-weight="800">11</text>
-                <text x="183" y="106" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">Historias</text>
-                <text x="183" y="117" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="7">1 cerrada · 9%</text>
-
-                <rect x="248" y="40" width="110" height="82" rx="10" stroke="#A83D89" stroke-width="1.5" fill="#FBF3F8" />
-                <text x="303" y="76" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="19" font-weight="800">6/52</text>
-                <text x="303" y="106" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">Tareas</text>
-                <text x="303" y="117" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="7">12% completas</text>
-
-                <rect x="368" y="40" width="104" height="82" rx="10" stroke="#A83D89" stroke-width="1.5" fill="#FBF3F8" />
-                <text x="420" y="76" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="22" font-weight="800">11</text>
-                <text x="420" y="106" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">Changes</text>
-                <text x="420" y="117" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="7">10 activos · 1 arch.</text>
-
-                <!-- stepper de fases (real, comando status) -->
-                <text x="8" y="136" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9" font-weight="700" letter-spacing="0.6">FASES DEL PROYECTO (real, comando status)</text>
-
-                <rect x="8" y="150" width="70" height="40" rx="9" stroke="#8394A3" stroke-width="1.4" fill="#F7F8FA" />
-                <text x="43" y="174" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9">Entender</text>
-                <path d="M78 170 L84 170" stroke="#8394A3" stroke-width="1.3" />
-
-                <rect x="84" y="150" width="70" height="40" rx="9" stroke="#8394A3" stroke-width="1.4" fill="#F7F8FA" />
-                <text x="119" y="174" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9">Decidir</text>
-                <path d="M154 170 L160 170" stroke="#8394A3" stroke-width="1.3" />
-
-                <rect x="160" y="150" width="70" height="40" rx="9" stroke="#66862E" stroke-width="1.6" fill="#F2F6E9" />
-                <text x="195" y="167" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="9">Descomp.</text>
-                <text x="195" y="180" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="8.5" font-weight="800">✓</text>
-                <path d="M230 170 L236 170" stroke="#66862E" stroke-width="1.4" />
-
-                <rect x="236" y="150" width="70" height="40" rx="9" stroke="#66862E" stroke-width="1.6" fill="#F2F6E9" />
-                <text x="271" y="167" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="9">Traducir</text>
-                <text x="271" y="180" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="8.5" font-weight="800">✓</text>
-                <path d="M306 170 L312 170" stroke="#8394A3" stroke-width="1.3" />
-
-                <rect x="312" y="150" width="70" height="40" rx="9" stroke="#8394A3" stroke-width="1.4" fill="#F7F8FA" />
-                <text x="347" y="174" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9">Construir</text>
-                <path d="M382 170 L388 170" stroke="#B86F24" stroke-width="1.3" />
-
-                <rect x="388" y="150" width="70" height="40" rx="9" stroke="#B86F24" stroke-width="1.6" fill="#FBF6EC" />
-                <text x="423" y="167" text-anchor="middle" fill="#8A5A00" font-family="Space Grotesk,sans-serif" font-size="9">Cerrar</text>
-                <text x="423" y="180" text-anchor="middle" fill="#8A5A00" font-family="Space Grotesk,sans-serif" font-size="8.5" font-weight="800">···</text>
-
-                <!-- bloque de sprint -->
-                <rect x="8" y="222" width="464" height="54" rx="12" stroke="#7189B8" stroke-width="1.6" fill="#F7F5FA" />
-                <text x="24" y="243" fill="#4A5F8C" font-family="Space Grotesk,sans-serif" font-size="10.5" font-weight="800">SPRINT</text>
-                <text x="24" y="261" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9">3 olas de trabajo paralelo · ola actual: 1 · 4 changes listas para arrancar</text>
-
-                <!-- decisiones clave -->
-                <rect x="8" y="288" width="464" height="70" rx="12" stroke="#A83D89" stroke-width="1.6" fill="#FBF3F8" />
-                <text x="24" y="309" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="10.5" font-weight="800">DECISIONES CLAVE</text>
-                <text x="24" y="328" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9">0 registradas por ahora en este proyecto —cada override de alcance</text>
-                <text x="24" y="342" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9">queda aquí con su motivo, trazable en <tspan font-family="ui-monospace,monospace">history</tspan>.</text>
-
-                <text x="240" y="376" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8.5" font-style="italic">cifras reales de status --json · Sistema de Créditos y Becas</text>
-              </svg>
-            </figure>
-          </article>
-
-          <article
             class="slide is-wide"
-            data-index="32"
+            data-index="39"
             data-module="5"
             data-tone="blue"
           >
             <div class="slide-content">
-              <p class="slide-kicker">33 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <p class="slide-kicker">40 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
               <h2>El video completo</h2>
               <ul class="slide-list">
                 <li>
@@ -3911,16 +3870,14 @@
             </div>
           </article>
 
-
-
           <article
             class="slide is-wide"
-            data-index="33"
+            data-index="40"
             data-module="5"
             data-tone="blue"
           >
             <div class="slide-content">
-              <p class="slide-kicker">34 &middot; Fuentes</p>
+              <p class="slide-kicker">41 &middot; Fuentes</p>
               <h2>Fuentes</h2>
               <ul class="slide-list slide-references">
                 <li>

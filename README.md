@@ -8,7 +8,7 @@ Este repositorio es únicamente para `index.html`.
 
 ## Qué es
 
-Un <abbr title="HyperText Markup Language (lenguaje de marcado de hipertexto)">HTML</abbr> independiente (<abbr title="HyperText Markup Language (lenguaje de marcado de hipertexto)">HTML</abbr> + <abbr title="Cascading Style Sheets (hojas de estilo en cascada)">CSS</abbr> + <abbr title="JavaScript (lenguaje de programación del navegador)">JS</abbr>, sin build ni dependencias), construido de forma incremental, que desarrolla la propuesta de adopción de agentes en el <abbr title="Software Development Life Cycle (ciclo de vida del desarrollo de software)">SDLC</abbr>: motivación, evidencia con métricas citadas, riesgos y la respuesta metodológica, hasta el stack <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">SPEC-WEAVER</abbr>. 33 slides organizados en 6 módulos.
+Un <abbr title="HyperText Markup Language (lenguaje de marcado de hipertexto)">HTML</abbr> independiente (<abbr title="HyperText Markup Language (lenguaje de marcado de hipertexto)">HTML</abbr> + <abbr title="Cascading Style Sheets (hojas de estilo en cascada)">CSS</abbr> + <abbr title="JavaScript (lenguaje de programación del navegador)">JS</abbr>, sin build ni dependencias), construido de forma incremental, que desarrolla la propuesta de adopción de agentes en el <abbr title="Software Development Life Cycle (ciclo de vida del desarrollo de software)">SDLC</abbr>: motivación, evidencia con métricas citadas, riesgos y la respuesta metodológica, hasta el stack <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">SPEC-WEAVER</abbr>. 41 slides organizados en 6 módulos (portada + 40 diapositivas).
 
 ## Contenido
 
@@ -61,7 +61,7 @@ Abre http://localhost:8000/.
 ## Estructura
 
 ```
-index.html             # Deck de la propuesta (33 slides, 6 modulos)
+index.html             # Deck de la propuesta (41 slides, 6 módulos)
 assets/css/styles.css  # Estilos y tema visual compartido
 assets/js/app.js       # Navegacion, teclado y contador
 assets/images/         # Logos, iconos y capturas usadas en las diapositivas
