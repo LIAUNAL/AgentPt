@@ -964,45 +964,40 @@ cite {
 
 /* Contenedor del diagrama de flujo primario (comandos CLI / "/") */
 .cmd-flow {
-  margin: 12px auto 8px;
+  margin: 10px auto 6px;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 16px;
   background: var(--figure-bg);
-  padding: 16px 24px;
+  padding: clamp(12px, 1.8vh, 20px) clamp(14px, 1.8vw, 24px);
   width: 100%;
+  max-width: 1440px;
   display: flex;
   justify-content: center;
+  align-items: center;
   box-sizing: border-box;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
-.slide[data-index="24"] .cmd-flow {
-  max-width: 1080px;
-}
-
-.slide[data-index="24"] .cmd-flow svg {
+.cmd-flow svg {
   display: block;
   width: 100%;
-  max-width: 1020px;
+  max-width: 1400px;
   height: auto;
-  max-height: 420px;
+  max-height: clamp(400px, 58vh, 560px);
   margin: 0 auto;
 }
 
-.slide[data-index="25"] .cmd-flow {
-  max-width: 1440px;
+.slide[data-tone="yellow"] .cmd-flow svg {
+  max-width: 1180px;
 }
 
-.slide[data-index="25"] .cmd-flow svg {
-  display: block;
-  width: 100%;
-  max-width: 1380px;
-  height: auto;
-  max-height: 460px;
-  margin: 0 auto;
+.slide[data-tone="purple"] .cmd-flow svg {
+  max-width: 1400px;
 }
 
 .cmd-pills-caption {
-  margin: 14px 0 2px;
+  margin: 10px 0 2px;
   font-size: 0.95rem;
   color: var(--subtext);
   font-style: italic;
@@ -1012,14 +1007,14 @@ cite {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 8px 0 0;
+  margin: 6px 0 0;
   padding: 0;
   list-style: none;
 }
 
 .cmd-pills li {
   font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
 }
 
 .cmd-pills abbr {
@@ -1028,7 +1023,7 @@ cite {
   background: var(--gray2);
   border: 1px solid var(--line);
   border-radius: 999px;
-  padding: 6px 16px;
+  padding: 5px 15px;
 }
 
 /* Excerpts reales de artefactos (prd.md / epics.md / spec.md), renderizados */
