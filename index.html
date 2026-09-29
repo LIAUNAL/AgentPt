@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=2" />
   </head>
   <body>
     <div class="ambient"></div>
@@ -2246,7 +2246,7 @@
                 </li>
                 <li>
                   <strong>Especificaciones y memoria, ya conectados:</strong>
-                  OpenSpec, <abbr title="Spec-Driven Development (desarrollo guiado por especificaciones)">Spec-Driven Development (SDD)</abbr> y <abbr title="Organic Driven Development (desarrollo orgánico guiado)">Organic Driven Development (ODD)</abbr>; Engram, Graphify o Memento.
+                  SpecWeaver, <abbr title="Spec-Driven Development (desarrollo guiado por especificaciones)">Spec-Driven Development (SDD)</abbr> y <abbr title="Organic Driven Development (desarrollo orgánico guiado)">Organic Driven Development (ODD)</abbr>; Engram, Graphify o Memento.
                 </li>
                 <li>
                   <strong>Requerimientos, deliberadamente abierto:</strong>
@@ -2270,7 +2270,7 @@
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 role="img"
-                aria-label="Diagrama en dos zonas. Arriba, el hub SPEC-WEAVER conectado a cuatro piezas del stack: repositorios (GitHub, GitLab, Azure DevOps, abierto), especificaciones (OpenSpec, SDD, ODD, ya conecta), memoria (Engram, Graphify, Memento, ya conecta) y requerimientos (BMAD, Spec Kit, Kiro, abierto). Abajo, el ciclo DevOps en seis etapas encadenadas, cada una con sus herramientas y todas en roadmap: planificar (Jira, Azure Boards, Linear), especificar (Confluence, Notion), construir (GitHub, GitLab, Bitbucket), revisar (GitHub PR, GitLab MR), verificar (GH Actions, Jenkins, Sonar y Sentry) y cerrar o avisar (estado Jira, changelog, Slack); una flecha de retorno lleva el estado y un comentario de vuelta a Jira. En el centro del ciclo, SPEC-WEAVER se conecta con radios a las seis etapas y mantiene la ingenieria en cada una. Una franja indica que SPEC-WEAVER es agnostico y se conecta a cualquier herramienta via MCP o API, como HubSpot, Monday o Miro, y Slack, MS Teams y Discord notifican en todo el ciclo"
+                aria-label="Diagrama en dos zonas. Arriba, el hub SPEC-WEAVER conectado a cuatro piezas del stack: repositorios (GitHub, GitLab, Azure DevOps, abierto), especificaciones (SpecWeaver, SDD, ODD, ya conecta), memoria (Engram, Graphify, Memento, ya conecta) y requerimientos (BMAD, Spec Kit, Kiro, abierto). Abajo, el ciclo DevOps en seis etapas encadenadas, cada una con sus herramientas y todas en roadmap: planificar (Jira, Azure Boards, Linear), especificar (Confluence, Notion), construir (GitHub, GitLab, Bitbucket), revisar (GitHub PR, GitLab MR), verificar (GH Actions, Jenkins, Sonar y Sentry) y cerrar o avisar (estado Jira, changelog, Slack); una flecha de retorno lleva el estado y un comentario de vuelta a Jira. En el centro del ciclo, SPEC-WEAVER se conecta con radios a las seis etapas y mantiene la ingenieria en cada una. Una franja indica que SPEC-WEAVER es agnostico y se conecta a cualquier herramienta via MCP o API, como HubSpot, Monday o Miro, y Slack, MS Teams y Discord notifican en todo el ciclo"
               >
                 <defs>
                   <marker id="ah22" markerWidth="8" markerHeight="8" refX="5" refY="2.6" orient="auto"><path d="M0 0 L5.5 2.6 L0 5.2 z" fill="#7189B8" /></marker>
@@ -2293,7 +2293,7 @@
 
                 <rect x="354" y="52" width="150" height="60" rx="12" fill="#F4F7FA" stroke="#66862E" stroke-width="1.6" />
                 <text x="429" y="73" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="12.5" font-weight="800">Especificaciones</text>
-                <text x="429" y="91" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8.5">OpenSpec · SDD · ODD</text>
+                <text x="429" y="91" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8.5">SpecWeaver · SDD · ODD</text>
                 <circle cx="366" cy="104" r="4" fill="#66862E" />
                 <text x="374" y="107" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="8" font-weight="700">ya conecta</text>
 
@@ -2391,16 +2391,763 @@
               </svg>
             </figure>
           </article>
-
+          <!-- M5: 6. UN-SpecWeaver — Tutorial: Sistema de Creditos y Becas -->
 
           <article
-            class="slide is-wide"
+            class="slide"
             data-index="22"
+            data-module="5"
+            data-tone="cyan"
+          >
+            <div class="slide-content">
+              <p class="slide-kicker">23 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>Tutorial: de la idea al código, con un caso real</h2>
+              <ul class="slide-list">
+                <li>
+                  Vas a recorrer el mismo caso que ya se construyó para el video: el <strong>Sistema de Créditos y Becas</strong>
+                  de una universidad —hoy gestionado de forma manual y fragmentada entre bienestar universitario,
+                  la oficina financiera y dirección académica.
+                </li>
+                <li>
+                  Todo lo que aparece a continuación es real: capturas de terminal, del dashboard y artefactos
+                  que el propio proyecto generó —ningún mockup.
+                </li>
+                <li>
+                  El recorrido: crear el proyecto, sus comandos de <abbr title="Command-Line Interface (interfaz de línea de comandos)">CLI</abbr> y los comandos &ldquo;/&rdquo;
+                  del harness, los artefactos reales que produce (<abbr title="Product Requirements Document (documento de requisitos de producto)">PRD</abbr>, épicas, SpecWeaver, código con pruebas)
+                  y el dashboard web.
+                </li>
+                <li>
+                  Cierra con el video completo, que repite este mismo recorrido narrado en español.
+                </li>
+              </ul>
+            </div>
+            <figure class="slide-figure">
+              <svg
+                viewBox="0 0 520 200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Diagrama de flujo horizontal con cinco cajas conectadas por flechas: Idea, PRD, Epicas y Historias, SpecWeaver y Codigo, resumiendo el recorrido del tutorial"
+              >
+                <defs>
+                  <marker id="ah-tut1" markerWidth="8" markerHeight="8" refX="5" refY="2.6" orient="auto"><path d="M0 0 L5.5 2.6 L0 5.2 z" fill="#2F8F86" /></marker>
+                </defs>
+
+                <text x="260" y="24" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">DE LA IDEA AL CÓDIGO</text>
+                <text x="260" y="40" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9" font-style="italic">el mismo flujo, en un solo recorrido</text>
+
+                <rect x="10" y="80" width="60" height="60" rx="10" fill="#EAF6F4" stroke="#2F8F86" stroke-width="1.6" />
+                <text x="40" y="115" text-anchor="middle" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">Idea</text>
+
+                <path d="M70 110 H80" stroke="#2F8F86" stroke-width="1.6" marker-end="url(#ah-tut1)" />
+
+                <rect x="82" y="80" width="60" height="60" rx="10" fill="#EAF6F4" stroke="#2F8F86" stroke-width="1.6" />
+                <text x="112" y="115" text-anchor="middle" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">PRD</text>
+
+                <path d="M142 110 H152" stroke="#2F8F86" stroke-width="1.6" marker-end="url(#ah-tut1)" />
+
+                <rect x="154" y="80" width="140" height="60" rx="10" fill="#EAF6F4" stroke="#2F8F86" stroke-width="1.6" />
+                <text x="224" y="110" text-anchor="middle" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="10.5" font-weight="700">Épicas /</text>
+                <text x="224" y="124" text-anchor="middle" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="10.5" font-weight="700">Historias</text>
+
+                <path d="M294 110 H304" stroke="#2F8F86" stroke-width="1.6" marker-end="url(#ah-tut1)" />
+
+                <rect x="306" y="80" width="100" height="60" rx="10" fill="#EAF6F4" stroke="#2F8F86" stroke-width="1.6" />
+                <text x="356" y="115" text-anchor="middle" fill="#1F6B63" font-family="Space Grotesk,sans-serif" font-size="10.5" font-weight="700">SpecWeaver</text>
+
+                <path d="M406 110 H416" stroke="#2F8F86" stroke-width="1.6" marker-end="url(#ah-tut1)" />
+
+                <rect x="418" y="80" width="92" height="60" rx="10" fill="#1B2029" stroke="#2F8F86" stroke-width="2" />
+                <text x="464" y="115" text-anchor="middle" fill="#FFFFFF" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="800">Código</text>
+
+                <text x="260" y="178" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9.5" font-style="italic">caso real: Sistema de Créditos y Becas</text>
+              </svg>
+            </figure>
+          </article>
+
+          <article
+            class="slide"
+            data-index="23"
             data-module="5"
             data-tone="blue"
           >
             <div class="slide-content">
-              <p class="slide-kicker">23 &middot; Fuentes</p>
+              <p class="slide-kicker">24 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>Paso 1 — Crear el proyecto desde cero</h2>
+              <ul class="slide-list">
+                <li>
+                  Un solo comando arranca todo:
+                  <code>npx un-specweaver init sistema-creditos-becas --lang es</code>.
+                </li>
+                <li>
+                  Qué hace <code>init</code>: prepara el entorno completo —instala la capa de planeación
+                  (BMAD + SpecWeaver), configura la memoria del proyecto con Engram, construye un grafo del
+                  código con graphify, y deja listos los comandos &ldquo;/&rdquo; dentro del editor.
+                </li>
+                <li>
+                  Flags útiles: <code>--dry-run</code> muestra el plan sin tocar nada; <code>--yes</code>
+                  evita repetir la confirmación del instalador remoto.
+                </li>
+                <li>
+                  Esta captura corre contra el binario del repo en desarrollo, no la versión publicada en
+                  npm (que va varias versiones por detrás).
+                </li>
+              </ul>
+            </div>
+            <figure class="slide-figure">
+              <svg
+                viewBox="0 0 560 260"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Diagrama: el comando init en el centro arriba, con cuatro flechas que se abren hacia cuatro cajas: Planeacion (BMAD mas SpecWeaver), Memoria (Engram), Grafo de codigo (graphify), y Comandos slash en el editor"
+              >
+                <defs>
+                  <marker id="ah-init" markerWidth="8" markerHeight="8" refX="5" refY="2.6" orient="auto"><path d="M0 0 L5.5 2.6 L0 5.2 z" fill="#4E93B0" /></marker>
+                </defs>
+
+                <text x="280" y="16" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="11.5" font-weight="700" letter-spacing="1.2">UN SOLO COMANDO, CUATRO PIEZAS LISTAS</text>
+
+                <rect x="210" y="26" width="140" height="46" rx="12" fill="#1B2029" stroke="#4E93B0" stroke-width="2" />
+                <text x="280" y="53" text-anchor="middle" fill="#FFFFFF" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="800">init</text>
+
+                <path d="M235 72 L70 140" stroke="#4E93B0" stroke-width="1.5" marker-end="url(#ah-init)" />
+                <path d="M265 72 L203 140" stroke="#4E93B0" stroke-width="1.5" marker-end="url(#ah-init)" />
+                <path d="M295 72 L336 140" stroke="#4E93B0" stroke-width="1.5" marker-end="url(#ah-init)" />
+                <path d="M325 72 L469 140" stroke="#4E93B0" stroke-width="1.5" marker-end="url(#ah-init)" />
+
+                <rect x="10" y="140" width="120" height="72" rx="10" fill="#F4F7FA" stroke="#4E93B0" stroke-width="1.4" />
+                <text x="70" y="170" text-anchor="middle" fill="#2C6B87" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">Planeación</text>
+                <text x="70" y="186" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">BMAD + SpecWeaver</text>
+
+                <rect x="143" y="140" width="120" height="72" rx="10" fill="#F7F5FA" stroke="#A83D89" stroke-width="1.4" />
+                <text x="203" y="170" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">Memoria</text>
+                <text x="203" y="186" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">Engram</text>
+
+                <rect x="276" y="140" width="120" height="72" rx="10" fill="#F2F6E9" stroke="#66862E" stroke-width="1.4" />
+                <text x="336" y="170" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">Grafo de código</text>
+                <text x="336" y="186" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">graphify</text>
+
+                <rect x="409" y="140" width="120" height="72" rx="10" fill="#FBF6EC" stroke="#A8781A" stroke-width="1.4" />
+                <text x="469" y="170" text-anchor="middle" fill="#8A5A00" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">Comandos “/”</text>
+                <text x="469" y="186" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">en el editor</text>
+
+                <text x="280" y="240" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9" font-style="italic">un comando, cuatro piezas listas para trabajar</text>
+              </svg>
+            </figure>
+          </article>
+
+          <article
+            class="slide is-wide"
+            data-index="24"
+            data-module="5"
+            data-tone="yellow"
+          >
+            <div class="slide-content">
+              <p class="slide-kicker">25 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>Los comandos del CLI</h2>
+              <p>
+                Un comando arranca el proyecto una sola vez; el resto se repite mientras avanza:
+                revisar el estado, cerrar lo terminado y abrir el dashboard.
+              </p>
+              <div class="cmd-flow">
+                <svg
+                  width="560"
+                  height="232"
+                  style="aspect-ratio: 560 / 232;"
+                  viewBox="0 0 560 232"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Diagrama de flujo: init, marcado como una vez, alimenta con una flecha punteada al ciclo principal de tres pasos que se repite: status, luego close, luego dashboard, y de vuelta a status"
+                >
+                  <defs>
+                    <marker id="ah-cli-once" markerWidth="8" markerHeight="8" refX="5" refY="2.6" orient="auto"><path d="M0 0 L5.5 2.6 L0 5.2 z" fill="#8394A3" /></marker>
+                    <marker id="ah-cli" markerWidth="8" markerHeight="8" refX="5" refY="2.6" orient="auto"><path d="M0 0 L5.5 2.6 L0 5.2 z" fill="#A8781A" /></marker>
+                  </defs>
+
+                  <text x="280" y="16" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="11.5" font-weight="700" letter-spacing="1.2">DEL SETUP A LA RUTINA</text>
+
+                  <rect x="26" y="30" width="58" height="15" rx="7.5" fill="#8394A3" opacity="0.18" />
+                  <text x="55" y="40.5" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="7.5" font-weight="700">una vez</text>
+
+                  <rect x="16" y="48" width="108" height="48" rx="10" stroke="#8394A3" stroke-width="1.6" stroke-dasharray="4 3" fill="#FAFAFB">
+                    <title>Prepara el entorno completo en un proyecto.</title>
+                  </rect>
+                  <text x="70" y="76" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="800">init</text>
+
+                  <path d="M124 72 L200 72" stroke="#8394A3" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#ah-cli-once)" />
+
+                  <rect x="200" y="48" width="128" height="48" rx="10" stroke="#A8781A" stroke-width="1.8" fill="#FBF6EC">
+                    <title>En qué va el proyecto: fases, changes, sprint, requisitos, decisiones (--html, --open, --json).</title>
+                  </rect>
+                  <text x="264" y="70" text-anchor="middle" fill="#8A5A00" font-family="Space Grotesk,sans-serif" font-size="12.5" font-weight="800">status</text>
+                  <text x="264" y="86" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8">avance real</text>
+
+                  <path d="M328 72 L398 72" stroke="#A8781A" stroke-width="1.8" marker-end="url(#ah-cli)" />
+
+                  <rect x="398" y="48" width="128" height="48" rx="10" stroke="#A8781A" stroke-width="1.8" fill="#FBF6EC">
+                    <title>Cierra stories terminadas: valida y archiva su spec (--done: todas las que tienen sus tareas completas · --dry-run: solo lista).</title>
+                  </rect>
+                  <text x="462" y="70" text-anchor="middle" fill="#8A5A00" font-family="Space Grotesk,sans-serif" font-size="12.5" font-weight="800">close</text>
+                  <text x="462" y="86" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8">archiva specs</text>
+
+                  <path d="M462 96 V180 H330" stroke="#A8781A" stroke-width="1.8" fill="none" marker-end="url(#ah-cli)" />
+
+                  <rect x="200" y="156" width="128" height="48" rx="10" stroke="#A8781A" stroke-width="1.8" fill="#FBF6EC">
+                    <title>Inicia el dashboard web en un puerto libre (default 3100), sirve la SPA en /.</title>
+                  </rect>
+                  <text x="264" y="178" text-anchor="middle" fill="#8A5A00" font-family="Space Grotesk,sans-serif" font-size="12.5" font-weight="800">dashboard</text>
+                  <text x="264" y="194" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8">vista web</text>
+
+                  <path d="M264 156 V98" stroke="#A8781A" stroke-width="1.8" fill="none" marker-end="url(#ah-cli)" />
+
+                  <text x="280" y="222" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9" font-style="italic">status → close → dashboard, y de vuelta a status</text>
+                </svg>
+              </div>
+              <p class="cmd-pills-caption">Menos frecuentes — pasa el cursor para ver qué hacen.</p>
+              <ul class="cmd-pills">
+                <li><abbr title="Actualiza la capa de skills, comandos y configuración.">update</abbr></li>
+                <li><abbr title="Revisa salud, pasos pendientes y drift de vendors.">doctor --fix</abbr></li>
+                <li><abbr title="Convierte stories de BMAD en changes de SpecWeaver.">bridge &lt;epics.md&gt;</abbr></li>
+                <li><abbr title="Lista los artefactos de planeación a cargar.">context</abbr></li>
+                <li><abbr title="Historial de decisiones por requisito, o ranking de los que más cambian.">history [FR-id]</abbr></li>
+                <li><abbr title="Muestra las versiones pineadas de cada vendor conectado (BMAD, SpecWeaver, Gentle-AI).">vendors</abbr></li>
+                <li><abbr title="Clasifica el diagrama de arquitectura del proyecto (component / package / c4-container) —cubierto en otro video.">architecture</abbr></li>
+              </ul>
+            </div>
+          </article>
+
+          <article
+            class="slide is-wide"
+            data-index="25"
+            data-module="5"
+            data-tone="purple"
+          >
+            <div class="slide-content">
+              <p class="slide-kicker">26 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>Los comandos &ldquo;/&rdquo; dentro del harness</h2>
+              <p>
+                Cinco puertas de entrada, una sola tubería: todo converge en planificar, construir,
+                verificar y cerrar.
+              </p>
+              <div class="cmd-flow">
+                <svg
+                  width="900"
+                  height="300"
+                  style="aspect-ratio: 900 / 300;"
+                  viewBox="0 0 900 300"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Diagrama: cinco comandos slash de entrada organizados en un flujo hacia la tuberia de cuatro pasos: sprint, build, status, close. Los comandos new y adopt arrancan proyectos; change y bug atienden requerimientos y defectos; ticket los enruta; y al cerrar, vuelve a entrar como proximo change"
+                >
+                  <defs>
+                    <marker id="ah-sw" markerWidth="8" markerHeight="8" refX="5" refY="2.6" orient="auto"><path d="M0 0 L5.5 2.6 L0 5.2 z" fill="#7189B8" /></marker>
+                    <marker id="ah-sw-ticket" markerWidth="8" markerHeight="8" refX="5" refY="2.6" orient="auto"><path d="M0 0 L5.5 2.6 L0 5.2 z" fill="#A83D89" /></marker>
+                    <marker id="ah-sw-return" markerWidth="8" markerHeight="8" refX="5" refY="2.6" orient="auto"><path d="M0 0 L5.5 2.6 L0 5.2 z" fill="#8394A3" /></marker>
+                  </defs>
+
+                  <text x="450" y="16" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="700" letter-spacing="1.2">CINCO ENTRADAS, UNA SOLA TUBERÍA</text>
+
+                  <!-- columna 1: /sw:ticket enrutador desde GitHub -->
+                  <rect x="16" y="148" width="116" height="76" rx="10" stroke="#A83D89" stroke-width="1.6" stroke-dasharray="4 3" fill="#FBF3F8">
+                    <title>Lee un issue de GitHub, decide si es defecto o requerimiento, y lo enruta al flujo que corresponde. No lo resuelve.</title>
+                  </rect>
+                  <text x="74" y="172" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="800">/sw:ticket</text>
+                  <text x="74" y="189" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8.8">lee issue GitHub</text>
+                  <text x="74" y="202" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8.8">triage y enruta</text>
+
+                  <!-- flechas de ticket hacia change y bug -->
+                  <path d="M132 170 L156 166" stroke="#A83D89" stroke-width="1.4" marker-end="url(#ah-sw-ticket)" />
+                  <path d="M132 200 L156 206" stroke="#A83D89" stroke-width="1.4" marker-end="url(#ah-sw-ticket)" />
+
+                  <!-- columna 2: los 4 comandos de entrada a sprint -->
+                  <!-- grupo arranque -->
+                  <text x="233" y="30" text-anchor="middle" fill="#2C6B87" font-family="Space Grotesk,sans-serif" font-size="8.8" font-weight="700" letter-spacing="0.8">ARRANQUE (UNO A ELEGIR)</text>
+
+                  <rect x="158" y="36" width="150" height="42" rx="9" stroke="#4E93B0" stroke-width="1.6" fill="#F4F7FA">
+                    <title>Arranca un proyecto desde cero: de la idea al PRD, a epics y stories, y de ahi a changes de SpecWeaver listos para construir.</title>
+                  </rect>
+                  <text x="233" y="54" text-anchor="middle" fill="#2C6B87" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="800">/sw:new</text>
+                  <text x="233" y="68" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8.8">desde cero → PRD → specs</text>
+
+                  <rect x="158" y="84" width="150" height="42" rx="9" stroke="#4E93B0" stroke-width="1.6" fill="#F4F7FA">
+                    <title>Trae un proyecto que ya existe a este flujo: mapea el codigo real, deriva su arquitectura, levanta un PRD brownfield y fija una linea base de specs.</title>
+                  </rect>
+                  <text x="233" y="102" text-anchor="middle" fill="#2C6B87" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="800">/sw:adopt</text>
+                  <text x="233" y="116" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8.8">proyecto existente → brownfield</text>
+
+                  <!-- grupo ciclo continuo -->
+                  <text x="233" y="142" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="8.8" font-weight="700" letter-spacing="0.8">CICLO CONTINUO</text>
+
+                  <rect x="158" y="148" width="150" height="42" rx="9" stroke="#A83D89" stroke-width="1.6" fill="#F7F5FA">
+                    <title>Procesa un requerimiento que llega a mitad del desarrollo: primero controla el alcance, luego actualiza el documento fuente y regenera solo lo afectado.</title>
+                  </rect>
+                  <text x="233" y="166" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="800">/sw:change</text>
+                  <text x="233" y="180" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8.8">requisito nuevo, con alcance</text>
+
+                  <rect x="158" y="196" width="150" height="42" rx="9" stroke="#A83D89" stroke-width="1.6" fill="#F7F5FA">
+                    <title>Corrige un defecto: el comportamiento especificado es correcto y la implementacion no lo cumple. No pasa por control de alcance.</title>
+                  </rect>
+                  <text x="233" y="214" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="800">/sw:bug</text>
+                  <text x="233" y="228" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8.8">defecto, sin control alcance</text>
+
+                  <!-- convergencia limpia hacia sprint: ningun cruce -->
+                  <path d="M308 57 L396 116" stroke="#7189B8" stroke-width="1.3" marker-end="url(#ah-sw)" />
+                  <path d="M308 105 L396 124" stroke="#7189B8" stroke-width="1.3" marker-end="url(#ah-sw)" />
+                  <path d="M308 169 L396 138" stroke="#7189B8" stroke-width="1.3" marker-end="url(#ah-sw)" />
+                  <path d="M308 217 L396 146" stroke="#7189B8" stroke-width="1.3" marker-end="url(#ah-sw)" />
+
+                  <!-- tuberia lineal de ejecucion -->
+                  <rect x="398" y="105" width="102" height="52" rx="10" stroke="#7189B8" stroke-width="1.8" fill="#F7F5FA">
+                    <title>Recalcula las olas de trabajo paralelo y reparte los changes entre desarrolladores segun sus dependencias reales.</title>
+                  </rect>
+                  <text x="449" y="135" text-anchor="middle" fill="#4A5F8C" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="800">sprint</text>
+
+                  <path d="M500 131 H524" stroke="#7189B8" stroke-width="1.8" marker-end="url(#ah-sw)" />
+
+                  <rect x="526" y="105" width="102" height="52" rx="10" stroke="#7189B8" stroke-width="1.8" fill="#F7F5FA">
+                    <title>Entrega un change de SpecWeaver al flujo SDD para implementarlo, verificando primero que sus dependencias esten satisfechas.</title>
+                  </rect>
+                  <text x="577" y="135" text-anchor="middle" fill="#4A5F8C" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="800">build</text>
+
+                  <path d="M628 131 H652" stroke="#7189B8" stroke-width="1.8" marker-end="url(#ah-sw)" />
+
+                  <rect x="654" y="105" width="102" height="52" rx="10" stroke="#7189B8" stroke-width="1.8" fill="#F7F5FA">
+                    <title>Muestra en que va el proyecto: fases, changes con avance, olas del sprint, requisitos con cobertura e inestabilidad, decisiones e historial. Interpreta, no solo pega.</title>
+                  </rect>
+                  <text x="705" y="135" text-anchor="middle" fill="#4A5F8C" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="800">status</text>
+
+                  <path d="M756 131 H780" stroke="#7189B8" stroke-width="1.8" marker-end="url(#ah-sw)" />
+
+                  <rect x="782" y="105" width="102" height="52" rx="10" stroke="#7189B8" stroke-width="1.8" fill="#F7F5FA">
+                    <title>Cierra las stories terminadas: valida su spec y la archiva, que es lo que convierte el contrato en la linea base del sistema. Sin esto no hay contra que medir el alcance.</title>
+                  </rect>
+                  <text x="833" y="135" text-anchor="middle" fill="#4A5F8C" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="800">close</text>
+
+                  <!-- retorno punteado: close vuelve a entrar como proximo change -->
+                  <path d="M833 157 V266 H74 V226" stroke="#8394A3" stroke-width="1.4" stroke-dasharray="4 3" fill="none" marker-end="url(#ah-sw-return)" />
+                  <text x="450" y="282" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8.5" font-style="italic">vuelve a entrar como próximo change</text>
+                </svg>
+              </div>
+              <p class="cmd-pills-caption">Soporte y mantenimiento.</p>
+              <ul class="cmd-pills">
+                <li><abbr title="Revisa que el entorno esté completo y coherente: pasos de instalación, drift de vendors y consistencia entre el plan y los specs.">/sw:doctor</abbr></li>
+                <li><abbr title="Revisa si hay drift entre los vendors pineados y lo instalado en este proyecto, y actualiza de forma controlada.">/sw:sync</abbr></li>
+                <li><abbr title="Actualiza las skills, comandos y configuración de agentes en un proyecto existente sin tocar la arquitectura ni los specs.">/sw:update</abbr></li>
+                <li><abbr title="Inicia el dashboard web multi-proyecto en puerto libre (default 3100), sirve la SPA en / y opcionalmente abre el navegador.">/sw:dashboard</abbr></li>
+              </ul>
+            </div>
+          </article>
+
+          <article
+            class="slide is-wide"
+            data-index="26"
+            data-module="5"
+            data-tone="green"
+          >
+            <div class="slide-content">
+              <p class="slide-kicker">27 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>De la idea a las historias: el caso real</h2>
+              <ul class="slide-list">
+                <li>
+                  12 requisitos funcionales del <abbr title="Product Requirements Document (documento de requisitos de producto)">PRD</abbr> se descomponen en <strong>4 épicas</strong> y
+                  <strong>11 historias</strong>; cada historia se convierte en un change de SpecWeaver listo
+                  para construir —11 changes en total, uno ya cerrado y archivado.
+                </li>
+                <li>
+                  Las 4 épicas: Solicitud de crédito, Evaluación de elegibilidad para becas, Desembolso y
+                  seguimiento, y Reportes para dirección académica.
+                </li>
+              </ul>
+              <div class="excerpt-row">
+                <div>
+                  <p class="excerpt-label">prd.md</p>
+                  <div class="doc-excerpt">
+                    <p class="doc-excerpt-heading">Capacidad 1 — Solicitud de crédito</p>
+                    <dl class="req-list">
+                      <dt><code>FR-001</code></dt>
+                      <dd>El sistema DEBE permitir que un estudiante registre una solicitud de crédito con sus datos socioeconómicos (ingresos del hogar, número de dependientes, estrato, ocupación del acudiente).</dd>
+
+                      <dt><code>FR-002</code></dt>
+                      <dd>El sistema DEBE validar que la solicitud incluya los documentos requeridos (identificación, certificado de ingresos, certificado de matrícula) antes de enviarla a revisión, rechazando el envío si falta alguno.</dd>
+
+                      <dt><code>FR-003</code></dt>
+                      <dd>El sistema DEBE permitir que un asesor financiero revise una solicitud completa y la apruebe o rechace registrando un motivo.</dd>
+
+                      <dt><code>FR-004</code></dt>
+                      <dd>El sistema <span class="req-tag">DEBERÍA</span> notificar al estudiante el resultado de la revisión de su solicitud.</dd>
+                    </dl>
+                  </div>
+                </div>
+                <div>
+                  <p class="excerpt-label">epics.md</p>
+                  <div class="doc-excerpt">
+                    <p class="doc-excerpt-heading">Epic 1: Solicitud de crédito</p>
+                    <ol class="story-list">
+                      <li>Registro de solicitud de crédito con datos socioeconómicos</li>
+                      <li>Validación de documentos requeridos antes de enviar a revisión</li>
+                      <li>Revisión y decisión del asesor financiero</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="slide is-wide"
+            data-index="27"
+            data-module="5"
+            data-tone="magenta"
+          >
+            <div class="slide-content">
+              <p class="slide-kicker">28 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>El contrato completo: spec.md</h2>
+              <ul class="slide-list">
+                <li>
+                  El spec.md completo de la historia 1.1, ya cerrada: un requisito y sus tres escenarios
+                  Given/When/Then —es exactamente lo que la corrida de <code>node --test</code> de la
+                  siguiente diapositiva verifica.
+                </li>
+              </ul>
+              <div class="doc-excerpt">
+                <p class="doc-excerpt-heading">Requirement: Registro de solicitud de crédito con datos socioeconómicos</p>
+                <p>El sistema SHALL soportar registro de solicitud de crédito con datos socioeconómicos.</p>
+              </div>
+              <div class="doc-excerpt">
+                <p class="doc-excerpt-heading">Scenario: Completa el formulario con ingresos del hogar, número de dependientes, estrato y ocupación</p>
+                <dl class="gwt-list">
+                  <dt class="gwt-key">GIVEN</dt>
+                  <dd>un estudiante autenticado sin solicitud activa</dd>
+
+                  <dt class="gwt-key">WHEN</dt>
+                  <dd>completa el formulario con ingresos del hogar, número de dependientes, estrato y ocupación del acudiente y lo envía</dd>
+
+                  <dt class="gwt-key">THEN</dt>
+                  <dd>el sistema crea la solicitud con estado <code>borrador</code>, le asigna un identificador único y la asocia al estudiante</dd>
+                </dl>
+              </div>
+              <div class="doc-excerpt">
+                <p class="doc-excerpt-heading">Scenario: Intenta crear una segunda solicitud para el mismo periodo académico</p>
+                <dl class="gwt-list">
+                  <dt class="gwt-key">GIVEN</dt>
+                  <dd>un estudiante que ya tiene una solicitud activa en curso</dd>
+
+                  <dt class="gwt-key">WHEN</dt>
+                  <dd>intenta crear una segunda solicitud para el mismo periodo académico</dd>
+
+                  <dt class="gwt-key">THEN</dt>
+                  <dd>el sistema rechaza la creación y muestra el estado de la solicitud existente</dd>
+                </dl>
+              </div>
+              <div class="doc-excerpt">
+                <p class="doc-excerpt-heading">Scenario: El estudiante intenta enviar la solicitud</p>
+                <dl class="gwt-list">
+                  <dt class="gwt-key">GIVEN</dt>
+                  <dd>un formulario con campos socioeconómicos obligatorios vacíos</dd>
+
+                  <dt class="gwt-key">WHEN</dt>
+                  <dd>el estudiante intenta enviar la solicitud</dd>
+
+                  <dt class="gwt-key">THEN</dt>
+                  <dd>el sistema bloquea el envío y resalta los campos faltantes</dd>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="slide is-wide"
+            data-index="28"
+            data-module="5"
+            data-tone="orange"
+          >
+            <div class="slide-content">
+              <p class="slide-kicker">29 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>De SpecWeaver al código, sin saltos</h2>
+              <ul class="slide-list">
+                <li>
+                  <strong>Prueba en 60 segundos:</strong> la historia 1.1 &ldquo;Registro de solicitud de
+                  crédito con datos socioeconómicos&rdquo; (Épica 1) ya está implementada, probada y cerrada.
+                </li>
+                <li>
+                  <strong>Derivación 1:1 de pruebas:</strong> SpecWeaver toma cada escenario Given/When/Then del contrato (<code>spec.md</code>) y deriva directamente la suite de pruebas real en <code>registroSolicitudCredito.test.js</code>.
+                </li>
+                <li>
+                  <strong>Pruebas reales, no simuladas:</strong> <code>node --test</code> ejecutado contra el código real (<code>src/solicitud-credito/...</code>) verifica el 100% de criterios con 0 fallos.
+                </li>
+              </ul>
+
+              <figure class="slide-diagram" style="margin: 14px 0 12px;">
+                <svg
+                  viewBox="0 0 1020 175"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Diagrama del pipeline de pruebas en SpecWeaver: desde spec.md con 3 escenarios GWT, pasando por la derivación 1:1 del motor SpecWeaver, generando registroSolicitudCredito.test.js, ejecutado por node --test contra el código real en src, hasta la verificación formal con 6 de 6 pruebas aprobadas"
+                  style="width: 100%; height: auto; max-height: 185px; display: block;"
+                >
+                  <defs>
+                    <marker id="ah-test-arrow" markerWidth="8" markerHeight="8" refX="5" refY="2.6" orient="auto">
+                      <path d="M0 0 L5.5 2.6 L0 5.2 z" fill="#B86F24" />
+                    </marker>
+                  </defs>
+
+                  <text x="510" y="18" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">CÓMO SPECWEAVER DERIVA Y VERIFICA LAS PRUEBAS</text>
+
+                  <!-- 1. spec.md -->
+                  <rect x="8" y="30" width="180" height="135" rx="12" stroke="#A83D89" stroke-width="1.6" fill="#FBF3F8" />
+                  <text x="22" y="55" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="9.5" font-weight="800" letter-spacing="0.6">1. CONTRATO FORMAL</text>
+                  <text x="22" y="82" fill="#A83D89" font-family="ui-monospace,monospace" font-size="16" font-weight="700">spec.md</text>
+                  <text x="22" y="112" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="11">3 escenarios GWT</text>
+                  <text x="22" y="132" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="10">Criterios 1, 2 y 3 sin ambigüedad</text>
+
+                  <path d="M198 97 H224" stroke="#B86F24" stroke-width="2" marker-end="url(#ah-test-arrow)" />
+
+                  <!-- 2. Motor SpecWeaver -->
+                  <rect x="234" y="30" width="190" height="135" rx="12" stroke="#B86F24" stroke-width="1.8" fill="#FBF6EC" />
+                  <text x="248" y="55" fill="#8A5A00" font-family="Space Grotesk,sans-serif" font-size="9.5" font-weight="800" letter-spacing="0.6">2. MOTOR SPECWEAVER</text>
+                  <text x="248" y="82" fill="#B86F24" font-family="Space Grotesk,sans-serif" font-size="16" font-weight="800">Derivador 1:1</text>
+                  <text x="248" y="112" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="11">Traduce cada criterio a test</text>
+                  <text x="248" y="132" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="10">Aserciones directas sin mocks</text>
+
+                  <path d="M434 97 H460" stroke="#B86F24" stroke-width="2" marker-end="url(#ah-test-arrow)" />
+
+                  <!-- 3. Suite de tests -->
+                  <rect x="470" y="30" width="205" height="135" rx="12" stroke="#7189B8" stroke-width="1.6" fill="#F7F5FA" />
+                  <text x="484" y="55" fill="#4A5F8C" font-family="Space Grotesk,sans-serif" font-size="9.5" font-weight="800" letter-spacing="0.6">3. SUITE GENERADA</text>
+                  <text x="484" y="82" fill="#4A5F8C" font-family="ui-monospace,monospace" font-size="13.5" font-weight="700">*.test.js</text>
+                  <text x="484" y="112" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="11">registroSolicitudCredito</text>
+                  <text x="484" y="132" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="10">6 pruebas con aserciones exactas</text>
+
+                  <path d="M685 97 H711" stroke="#B86F24" stroke-width="2" marker-end="url(#ah-test-arrow)" />
+
+                  <!-- 4. Ejecución -->
+                  <rect x="721" y="30" width="170" height="135" rx="12" stroke="#8394A3" stroke-width="1.6" fill="#1B2029" />
+                  <text x="735" y="55" fill="#8394A3" font-family="Space Grotesk,sans-serif" font-size="9.5" font-weight="800" letter-spacing="0.6">4. EJECUTOR NATIVO</text>
+                  <text x="735" y="82" fill="#FFFFFF" font-family="ui-monospace,monospace" font-size="15" font-weight="700">node --test</text>
+                  <text x="735" y="112" fill="#CAD3E2" font-family="Space Grotesk,sans-serif" font-size="11">contra src/*.js</text>
+                  <text x="735" y="132" fill="#8394A3" font-family="Space Grotesk,sans-serif" font-size="10">Código real del proyecto</text>
+
+                  <path d="M901 97 H923" stroke="#B86F24" stroke-width="2" marker-end="url(#ah-test-arrow)" />
+
+                  <!-- 5. Gate / Verificación -->
+                  <rect x="933" y="30" width="80" height="135" rx="12" stroke="#66862E" stroke-width="2" fill="#F2F6E9" />
+                  <text x="973" y="55" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="9.5" font-weight="800" letter-spacing="0.6">GATE</text>
+                  <text x="973" y="85" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="18" font-weight="800">6/6 ✓</text>
+                  <text x="973" y="112" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700">Pass</text>
+                  <text x="973" y="132" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="10">0 fallos</text>
+                </svg>
+              </figure>
+
+              <p class="excerpt-label">node --test (salida real)</p>
+              <pre class="code-block">✔ Criterio 1: formulario completo crea la solicitud en estado borrador, con id único, asociada al estudiante
+✔ Criterio 1 (unicidad): dos solicitudes distintas reciben ids distintos
+✔ Criterio 2: una segunda solicitud para el mismo periodo académico se rechaza y expone el estado de la existente
+✔ Criterio 2 (no bloquea otro periodo): el mismo estudiante SÍ puede solicitar en un periodo académico distinto
+✔ Criterio 3: campos socioeconómicos obligatorios vacíos bloquean el envío y se listan los campos faltantes
+✔ Criterio 3: una solicitud con todos los campos socioeconómicos vacíos no queda registrada
+
+ℹ tests 6
+ℹ pass 6
+ℹ fail 0</pre>
+            </div>
+          </article>
+
+          <article
+            class="slide is-figure-wide"
+            data-index="29"
+            data-module="5"
+            data-tone="red"
+          >
+            <div class="slide-content">
+              <p class="slide-kicker">30 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>Levantar la interfaz web</h2>
+              <ul class="slide-list">
+                <li>
+                  Comando: <code>npx un-specweaver dashboard</code> (o el comando &ldquo;/&rdquo; equivalente:
+                  <code>/sw:dashboard</code>).
+                </li>
+                <li>
+                  Sirve la <abbr title="Single Page Application (aplicación de una sola página)">SPA</abbr> en <code>/</code>; el flag <code>--open</code> abre el navegador automáticamente.
+                </li>
+              </ul>
+            </div>
+            <figure class="slide-figure">
+              <img
+                src="assets/images/screenshot-dashboard-progreso.png"
+                alt="Dashboard web de un-specweaver recién abierto en el navegador tras npx un-specweaver dashboard, mostrando la pestaña Progreso del proyecto Sistema de Créditos y Becas"
+              />
+            </figure>
+          </article>
+
+          <article
+            class="slide is-figure-wide"
+            data-index="30"
+            data-module="5"
+            data-tone="cyan"
+          >
+            <div class="slide-content">
+              <p class="slide-kicker">31 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>El dashboard: pestaña Dependencias</h2>
+              <ul class="slide-list">
+                <li>
+                  Grafo real de dependencias entre historias —qué bloquea a qué, no una lista plana.
+                </li>
+                <li>
+                  Un clic sobre un nodo abre el inspector con el detalle exacto de esa historia.
+                </li>
+              </ul>
+            </div>
+            <figure class="slide-figure">
+              <img
+                src="assets/images/screenshot-dashboard-dependencias.png"
+                alt="Grafo de dependencias entre las 11 historias del proyecto, organizado por olas de trabajo paralelo, en la pestana Dependencias del dashboard"
+              />
+            </figure>
+          </article>
+
+          <article
+            class="slide"
+            data-index="31"
+            data-module="5"
+            data-tone="magenta"
+          >
+            <div class="slide-content">
+              <p class="slide-kicker">32 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>El dashboard: pestaña Progreso — inteligencia de negocio</h2>
+              <ul class="slide-list">
+                <li>
+                  Tiles de métricas en vivo, un stepper de fases y el bloque de sprint, todo calculado del
+                  estado real del proyecto —no una maqueta.
+                </li>
+                <li>
+                  La lista &ldquo;Decisiones clave&rdquo; hace trazable cada avance: qué se decidió y por qué.
+                </li>
+                <li>
+                  Esta es la vista de <abbr title="Business Intelligence (inteligencia de negocio)">BI</abbr> que convierte el avance de ingeniería en información legible
+                  para dirección académica.
+                </li>
+              </ul>
+            </div>
+            <figure class="slide-figure">
+              <svg
+                viewBox="0 0 480 400"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Mini dashboard con datos reales del comando status --json: cuatro tiles de metricas (4 epicas, 11 historias con 1 cerrada 9 por ciento, 6 de 52 tareas 12 por ciento, 11 changes con 1 archivado), un stepper de seis fases del proyecto -entender y decidir pendientes, descomponer y traducir a specs completas, construir pendiente, cerrar parcial-, un bloque de sprint con 3 olas y ola actual 1 con 4 changes listas, y un bloque de decisiones clave que hoy muestra 0 registradas"
+              >
+                <text x="240" y="16" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">PESTAÑA PROGRESO — ESTADO REAL</text>
+                <text x="240" y="29" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8.5" font-style="italic">un-specweaver status --json</text>
+
+                <!-- tiles de metricas -->
+                <rect x="8" y="40" width="110" height="82" rx="10" stroke="#A83D89" stroke-width="1.5" fill="#FBF3F8" />
+                <text x="63" y="76" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="22" font-weight="800">4</text>
+                <text x="63" y="110" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">Épicas</text>
+
+                <rect x="128" y="40" width="110" height="82" rx="10" stroke="#A83D89" stroke-width="1.5" fill="#FBF3F8" />
+                <text x="183" y="76" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="22" font-weight="800">11</text>
+                <text x="183" y="106" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">Historias</text>
+                <text x="183" y="117" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="7">1 cerrada · 9%</text>
+
+                <rect x="248" y="40" width="110" height="82" rx="10" stroke="#A83D89" stroke-width="1.5" fill="#FBF3F8" />
+                <text x="303" y="76" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="19" font-weight="800">6/52</text>
+                <text x="303" y="106" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">Tareas</text>
+                <text x="303" y="117" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="7">12% completas</text>
+
+                <rect x="368" y="40" width="104" height="82" rx="10" stroke="#A83D89" stroke-width="1.5" fill="#FBF3F8" />
+                <text x="420" y="76" text-anchor="middle" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="22" font-weight="800">11</text>
+                <text x="420" y="106" text-anchor="middle" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="8">Changes</text>
+                <text x="420" y="117" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="7">10 activos · 1 arch.</text>
+
+                <!-- stepper de fases (real, comando status) -->
+                <text x="8" y="136" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9" font-weight="700" letter-spacing="0.6">FASES DEL PROYECTO (real, comando status)</text>
+
+                <rect x="8" y="150" width="70" height="40" rx="9" stroke="#8394A3" stroke-width="1.4" fill="#F7F8FA" />
+                <text x="43" y="174" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9">Entender</text>
+                <path d="M78 170 L84 170" stroke="#8394A3" stroke-width="1.3" />
+
+                <rect x="84" y="150" width="70" height="40" rx="9" stroke="#8394A3" stroke-width="1.4" fill="#F7F8FA" />
+                <text x="119" y="174" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9">Decidir</text>
+                <path d="M154 170 L160 170" stroke="#8394A3" stroke-width="1.3" />
+
+                <rect x="160" y="150" width="70" height="40" rx="9" stroke="#66862E" stroke-width="1.6" fill="#F2F6E9" />
+                <text x="195" y="167" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="9">Descomp.</text>
+                <text x="195" y="180" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="8.5" font-weight="800">✓</text>
+                <path d="M230 170 L236 170" stroke="#66862E" stroke-width="1.4" />
+
+                <rect x="236" y="150" width="70" height="40" rx="9" stroke="#66862E" stroke-width="1.6" fill="#F2F6E9" />
+                <text x="271" y="167" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="9">Traducir</text>
+                <text x="271" y="180" text-anchor="middle" fill="#4F6B23" font-family="Space Grotesk,sans-serif" font-size="8.5" font-weight="800">✓</text>
+                <path d="M306 170 L312 170" stroke="#8394A3" stroke-width="1.3" />
+
+                <rect x="312" y="150" width="70" height="40" rx="9" stroke="#8394A3" stroke-width="1.4" fill="#F7F8FA" />
+                <text x="347" y="174" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="9">Construir</text>
+                <path d="M382 170 L388 170" stroke="#B86F24" stroke-width="1.3" />
+
+                <rect x="388" y="150" width="70" height="40" rx="9" stroke="#B86F24" stroke-width="1.6" fill="#FBF6EC" />
+                <text x="423" y="167" text-anchor="middle" fill="#8A5A00" font-family="Space Grotesk,sans-serif" font-size="9">Cerrar</text>
+                <text x="423" y="180" text-anchor="middle" fill="#8A5A00" font-family="Space Grotesk,sans-serif" font-size="8.5" font-weight="800">···</text>
+
+                <!-- bloque de sprint -->
+                <rect x="8" y="222" width="464" height="54" rx="12" stroke="#7189B8" stroke-width="1.6" fill="#F7F5FA" />
+                <text x="24" y="243" fill="#4A5F8C" font-family="Space Grotesk,sans-serif" font-size="10.5" font-weight="800">SPRINT</text>
+                <text x="24" y="261" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9">3 olas de trabajo paralelo · ola actual: 1 · 4 changes listas para arrancar</text>
+
+                <!-- decisiones clave -->
+                <rect x="8" y="288" width="464" height="70" rx="12" stroke="#A83D89" stroke-width="1.6" fill="#FBF3F8" />
+                <text x="24" y="309" fill="#A83D89" font-family="Space Grotesk,sans-serif" font-size="10.5" font-weight="800">DECISIONES CLAVE</text>
+                <text x="24" y="328" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9">0 registradas por ahora en este proyecto —cada override de alcance</text>
+                <text x="24" y="342" fill="#454F61" font-family="Space Grotesk,sans-serif" font-size="9">queda aquí con su motivo, trazable en <tspan font-family="ui-monospace,monospace">history</tspan>.</text>
+
+                <text x="240" y="376" text-anchor="middle" fill="#5B6472" font-family="Space Grotesk,sans-serif" font-size="8.5" font-style="italic">cifras reales de status --json · Sistema de Créditos y Becas</text>
+              </svg>
+            </figure>
+          </article>
+
+          <article
+            class="slide is-wide"
+            data-index="32"
+            data-module="5"
+            data-tone="blue"
+          >
+            <div class="slide-content">
+              <p class="slide-kicker">33 &middot; <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr></p>
+              <h2>El video completo</h2>
+              <ul class="slide-list">
+                <li>
+                  Este tutorial resume el recorrido en diapositivas; el video completo repite el mismo caso
+                  —Sistema de Créditos y Becas— narrado de punta a punta en español neutro, con capturas
+                  reales de cada paso.
+                </li>
+              </ul>
+              <div class="video-embed">
+                <video
+                  controls
+                  preload="metadata"
+                  playsinline
+                >
+                  <source src="assets/videos/un-specweaver-creditos-becas.mp4" type="video/mp4" />
+                  Tu navegador no soporta el elemento de video.
+                </video>
+              </div>
+            </div>
+          </article>
+
+
+
+          <article
+            class="slide is-wide"
+            data-index="33"
+            data-module="5"
+            data-tone="blue"
+          >
+            <div class="slide-content">
+              <p class="slide-kicker">34 &middot; Fuentes</p>
               <h2>Fuentes</h2>
               <ul class="slide-list slide-references">
                 <li>
