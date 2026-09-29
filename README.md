@@ -8,7 +8,7 @@ Este repositorio es únicamente para `index.html`.
 
 ## Qué es
 
-Un <abbr title="HyperText Markup Language (lenguaje de marcado de hipertexto)">HTML</abbr> independiente (<abbr title="HyperText Markup Language (lenguaje de marcado de hipertexto)">HTML</abbr> + <abbr title="Cascading Style Sheets (hojas de estilo en cascada)">CSS</abbr> + <abbr title="JavaScript (lenguaje de programación del navegador)">JS</abbr>, sin build ni dependencias), construido de forma incremental, que desarrolla la propuesta de adopción de agentes en el <abbr title="Software Development Life Cycle (ciclo de vida del desarrollo de software)">SDLC</abbr>: motivación, evidencia con métricas citadas, riesgos y la respuesta metodológica, hasta el stack <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">SPEC-WEAVER</abbr>. 31 slides organizados en 6 módulos.
+Un <abbr title="HyperText Markup Language (lenguaje de marcado de hipertexto)">HTML</abbr> independiente (<abbr title="HyperText Markup Language (lenguaje de marcado de hipertexto)">HTML</abbr> + <abbr title="Cascading Style Sheets (hojas de estilo en cascada)">CSS</abbr> + <abbr title="JavaScript (lenguaje de programación del navegador)">JS</abbr>, sin build ni dependencias), construido de forma incremental, que desarrolla la propuesta de adopción de agentes en el <abbr title="Software Development Life Cycle (ciclo de vida del desarrollo de software)">SDLC</abbr>: motivación, evidencia con métricas citadas, riesgos y la respuesta metodológica, hasta el stack <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">SPEC-WEAVER</abbr>. 33 slides organizados en 6 módulos.
 
 ## Contenido
 
@@ -18,8 +18,8 @@ Un <abbr title="HyperText Markup Language (lenguaje de marcado de hipertexto)">H
 | 2 | Perfiles en evolución | Perfiles tradicionales, <abbr title="Product Owner (dueño del producto)">Product Owner (PO)</abbr>/analistas de requerimientos y reparto <abbr title="Inteligencia Artificial">IA</abbr>/humano por etapa |
 | 3 | Chat vs Agente | Diferencia chat/agente y benchmarks de agentes de código en el mercado (pagos y gratuitos) |
 | 4 | Evidencia | Estadísticas citadas de productividad y adopción, matices de contexto, efecto amplificador de la <abbr title="Inteligencia Artificial">IA</abbr> y riesgos consolidados |
-| 5 | La respuesta | Contexto amplio necesario, ingeniería aplicada a la <abbr title="Inteligencia Artificial">IA</abbr>, ecosistema de piezas, el flujo comercial de consultoría (del mapeo de mercado al brief, antes vs. ahora) y vínculo requisitos→código, con capturas reales del flujo brief→<abbr title="Product Requirements Document (documento de requisitos de producto)">Product Requirements Document (PRD)</abbr>→épicas→memoria |
-| 6 | <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr> | El stack: qué herramientas ya se conectan y cuáles están en roadmap; dónde corre el agente (devcontainer vs. Sprites de fly.io), anatomía y seguridad del sandbox, y costo real por equipo |
+| 5 | La respuesta | Contexto amplio necesario, ingeniería aplicada a la <abbr title="Inteligencia Artificial">IA</abbr>, ecosistema de piezas y vínculo requisitos→código, con capturas reales del flujo brief→<abbr title="Product Requirements Document (documento de requisitos de producto)">Product Requirements Document (PRD)</abbr>→épicas→memoria |
+| 6 | <abbr title="Stack de especificaciones del deck que teje cada etapa del ciclo con su herramienta ('SPEC' = especificaciones, 'WEAVER' = tejedor)">UN-SpecWeaver</abbr> | El stack: qué herramientas ya se conectan y cuáles están en roadmap, más un tutorial práctico con el <abbr title="Command-Line Interface (interfaz de línea de comandos)">CLI</abbr> y comandos "/" reales, capturas del dashboard y el video completo del caso Sistema de Créditos y Becas |
 
 Cierra siempre con una diapositiva de **Fuentes**, con la cita completa de cada estadística usada en el deck.
 
@@ -61,7 +61,7 @@ Abre http://localhost:8000/.
 ## Estructura
 
 ```
-index.html             # Deck de la propuesta (31 slides, 6 modulos)
+index.html             # Deck de la propuesta (33 slides, 6 modulos)
 assets/css/styles.css  # Estilos y tema visual compartido
 assets/js/app.js       # Navegacion, teclado y contador
 assets/images/         # Logos, iconos y capturas usadas en las diapositivas

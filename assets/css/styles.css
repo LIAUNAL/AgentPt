@@ -548,6 +548,11 @@ abbr[title] {
   display: block;
 }
 
+/* Prueba visual del producto: mas espacio para la figura (~65-70% de la fila) */
+.slide.is-figure-wide {
+  grid-template-columns: minmax(200px, 30%) minmax(0, 1fr);
+}
+
 .deck-controls {
   display: flex;
   min-width: 0;
@@ -663,6 +668,10 @@ body.focus-mode .rail {
     gap: 12px;
   }
 
+  .slide.is-figure-wide {
+    grid-template-columns: minmax(160px, 32%) minmax(0, 1fr);
+  }
+
   h2 {
     font-size: 1.35rem;
   }
@@ -676,7 +685,8 @@ body.focus-mode .rail {
 
 /* ---------- Pantalla alta o angosta: una sola columna ---------- */
 @media (max-aspect-ratio: 1 / 1) and (max-width: 1000px), (max-width: 560px) {
-  .slide {
+  .slide,
+  .slide.is-figure-wide {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto;
     align-items: start;
@@ -939,4 +949,253 @@ cite {
 
 .slide.is-wide .slide-references {
   columns: 1; /* nunca partir en columnas */
+}
+
+/* ---------- Tutorial UN-SpecWeaver: comandos, diagramas y video ---------- */
+
+.slide-list code {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 0.88em;
+  background: var(--gray2);
+  color: var(--fg);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+/* Contenedor del diagrama de flujo primario (comandos CLI / "/") */
+.cmd-flow {
+  margin: 12px auto 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--figure-bg);
+  padding: 16px 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.slide[data-index="24"] .cmd-flow {
+  max-width: 1080px;
+}
+
+.slide[data-index="24"] .cmd-flow svg {
+  display: block;
+  width: 100%;
+  max-width: 1020px;
+  height: auto;
+  max-height: 420px;
+  margin: 0 auto;
+}
+
+.slide[data-index="25"] .cmd-flow {
+  max-width: 1440px;
+}
+
+.slide[data-index="25"] .cmd-flow svg {
+  display: block;
+  width: 100%;
+  max-width: 1380px;
+  height: auto;
+  max-height: 460px;
+  margin: 0 auto;
+}
+
+.cmd-pills-caption {
+  margin: 14px 0 2px;
+  font-size: 0.95rem;
+  color: var(--subtext);
+  font-style: italic;
+}
+
+.cmd-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cmd-pills li {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 0.95rem;
+}
+
+.cmd-pills abbr {
+  display: inline-block;
+  color: var(--subtext1);
+  background: var(--gray2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 16px;
+}
+
+/* Excerpts reales de artefactos (prd.md / epics.md / spec.md), renderizados */
+.doc-excerpt {
+  background: var(--gray2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+/* Varios .doc-excerpt apilados (p. ej. spec.md completo, un escenario por bloque) */
+.slide-list + .doc-excerpt,
+.slide-list + .excerpt-label {
+  margin-top: 14px;
+}
+
+.doc-excerpt + .doc-excerpt {
+  margin-top: 12px;
+}
+
+.doc-excerpt-heading {
+  margin: 0 0 10px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--subtext1);
+}
+
+.req-list,
+.gwt-list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(72px, 96px) minmax(0, 1fr);
+  gap: 8px 14px;
+}
+
+.req-list dt {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--fg);
+  align-self: start;
+}
+
+.req-list dd,
+.gwt-list dd {
+  margin: 0;
+  color: var(--subtext1);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.req-tag {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--subtext);
+  background: var(--gray0);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-right: 2px;
+  vertical-align: 1px;
+}
+
+.gwt-key {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  align-self: start;
+}
+
+.story-list {
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--subtext1);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.story-list li {
+  margin-bottom: 0.45em;
+}
+
+.story-list li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.code-block {
+  margin: 0;
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--fg);
+  background: var(--gray2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 20px;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+.excerpt-row {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.excerpt-label {
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--subtext);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  max-width: 1060px;
+  height: auto;
+  max-height: clamp(380px, 55vh, 520px);
+  aspect-ratio: 16 / 9;
+  margin: 16px auto 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--gray0);
+}
+
+.video-embed iframe,
+.video-embed video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  object-fit: contain;
+  background: #000;
+}
+
+@media (max-width: 760px) {
+  .req-list,
+  .gwt-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px 0;
+  }
+
+  .req-list dd,
+  .gwt-list dd {
+    margin-bottom: 10px;
+  }
+
+  .excerpt-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-height: 560px) and (orientation: landscape) {
+  .cmd-flow,
+  .doc-excerpt {
+    font-size: 0.92rem;
+  }
 }
