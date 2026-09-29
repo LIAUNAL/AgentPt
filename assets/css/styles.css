@@ -1342,3 +1342,90 @@ cite {
     padding: 7px 14px;
   }
 }
+
+/* ---------- Móviles y tablets: el contenido fluye y hace scroll ----------
+   El layout "llenar la pantalla" de los slides anchos (flex: 1 1 0 +
+   min-height: 0) sirve en proyector, pero en pantallas pequeñas colapsa los
+   bloques a altura ~0 y el texto se desborda y se superpone. */
+@media (max-width: 1040px), (max-height: 600px) {
+  .slide.is-wide .slide-content {
+    height: auto;
+  }
+
+  .excerpt-row,
+  .excerpt-row > div,
+  .excerpt-row .doc-excerpt,
+  .excerpt-row .req-list,
+  .excerpt-row .story-list,
+  .cmd-flow {
+    flex: none;
+    height: auto;
+  }
+
+  .excerpt-row .epics-summary {
+    margin-top: 16px;
+  }
+
+  .cmd-flow svg {
+    max-height: none;
+  }
+
+  /* Portada con scroll si no cabe (margin auto centra solo cuando sobra espacio) */
+  .slide.is-cover {
+    place-items: start center;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .cover-content {
+    margin-block: auto;
+  }
+
+  cite {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 560px) {
+  .doc-excerpt {
+    padding: 14px;
+  }
+
+  .doc-excerpt-heading {
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+  }
+
+  .req-list dd,
+  .gwt-list dd,
+  .story-list {
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  .req-list dt,
+  .gwt-key {
+    font-size: 0.95rem;
+  }
+
+  .excerpt-label {
+    font-size: 0.85rem;
+  }
+
+  .epics-pills li {
+    font-size: 0.92rem;
+  }
+
+  .code-block {
+    font-size: 0.85rem;
+    padding: 12px 14px;
+  }
+
+  .cmd-pills li {
+    font-size: 0.85rem;
+  }
+
+  .story-tag {
+    white-space: normal;
+  }
+}
